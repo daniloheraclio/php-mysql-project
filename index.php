@@ -1,12 +1,6 @@
 <?php 
 
-    // connect to datbase
-    $conn = mysql_connect('localhost', 'danilo', 'test1234', 'ninja_pizza');
-
-    // check connection
-    if(!$conn){
-        echo 'Connection error: ' . mysqli_connect_error();
-    }
+    include('config/db_connect.php');
 
     // write query for all pizza
     $sql = 'SELECT title, ingredients, id FROM pizzas ORDER BY created_at';
@@ -45,7 +39,7 @@
                             <h6> <?php echo htmlspecialchars($pizza['title']); ?> </h6>
                             <ul>
                                 <?php foreach(explode(',', $pizza['ingredients']) as $ing): ?>
-                                    <li>
+                                    <li> 
                                         <?php echo htmlspecialchars($ing); ?>
                                     </li>
                                 <?php endforeach; ?>
