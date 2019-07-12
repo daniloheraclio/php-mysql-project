@@ -35,8 +35,19 @@ $errors = array('email' => '', 'title' => '', 'ingredients' => '');
          }
       }
       
+      // array_filter() is a php method.
+      // We can pass a callback function but if we didn't, it gonna cycle throw and if
+      // all the positions and that array are empty (or false) is gonna return True
+      // If not find error is gonna return False
 
-
+      if(array_filter($erros)){
+         // echo 'errors in the form';
+      } else {
+         // echo 'form is valid';
+         // redirect to index.php
+         header('Location: index.php');
+      }
+      
    }
 
 ?>
