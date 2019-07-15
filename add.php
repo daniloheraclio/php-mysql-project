@@ -8,7 +8,7 @@ $errors = array('email' => '', 'title' => '', 'ingredients' => '');
    if(isset($_POST['submit'])){
 
       // Check email
-      if(empty($_POST('email'))){
+      if(empty($_POST['email'])){
          $errors['email'] = 'An email is required <br />';
       } else {
          $email = $_POST['email'];
@@ -18,7 +18,7 @@ $errors = array('email' => '', 'title' => '', 'ingredients' => '');
       }
 
       // Check title
-      if(empty($_POST('title'))){
+      if(empty($_POST['title'])){
          $errors['title'] = 'A title is required <br />';
       } else {
          $title = $_POST['title'];
@@ -28,7 +28,7 @@ $errors = array('email' => '', 'title' => '', 'ingredients' => '');
       }
 
       // Check ingredients
-      if(empty($_POST('ingredients'))){
+      if(empty($_POST['ingredients'])){
          $errors['ingredients'] = 'At least one ingredient is required <br />';
       } else {
          $ingredients = $_POST['ingredients'];
@@ -52,7 +52,7 @@ $errors = array('email' => '', 'title' => '', 'ingredients' => '');
          $ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
 
          // create sql
-         $sql = "INSERT INTO pizzas(title,email,ingredients) VALUES('$email', '$title', '$ingredients')";
+         $sql = "INSERT INTO pizzas(title,email,ingredients) VALUES('$title', '$email', '$ingredients')";
 
          // save to DB and check
          if(mysqli_query($conn, $sql)){
